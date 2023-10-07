@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
 }
 
 h2 {
@@ -108,6 +108,7 @@ img {
     width: 12rem;
     background: var(--color-danger);
     color: var(--color-white);
+    font-weight: 500;
 }
 
 /* ====== NAVBAR ====== */
@@ -127,7 +128,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.7rem 0;
+    padding: 0.5rem 0;
     margin: 0 auto;
 }
 
@@ -143,6 +144,7 @@ nav {
 .nav__links ul li a {
     transition: var(--transition);
     font-size: 0.9rem;
+    font-weight: 500;
 }
 
 .nav__links ul li a:hover {
@@ -164,6 +166,11 @@ nav {
 
 .nav__cto a {
     font-size: 0.9rem;
+    font-weight: 500;
+}
+
+nav button {
+    display: none;
 }
 
 .window-scroll {
@@ -186,6 +193,9 @@ header {
     overflow: hidden;
     height: 70vh;
     margin-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .header__container {
@@ -193,6 +203,7 @@ header {
     grid-template-columns: 40% 60%;
     gap: 2rem;
     align-items: center;
+    margin-top: 2rem;
 }
 
 .header__left {
@@ -236,23 +247,33 @@ header {
     transition: var(--transition);
 }
 
-.service::before {
-    content: "";
-    display: block;
-    background: var(--color-white);
-    width: 4rem;
-    height: 4rem;
-    position: absolute;
-    left: 5%;
-    top: -2rem; /*half of the square*/
-    border-radius: 50%;
-}
-
 .service:hover {
     box-shadow: 0 3rem 3rem  rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
-/* ADD HOVER EFFECT ON THE CIRCLE! */
+
+.service__icon {
+    width: 4rem;
+    height: 4rem;
+    background: var(--color-bg1);
+    border: 1px solid var(--color-primary);
+    border-radius: 50%;
+    position: absolute;
+    left: 5%;
+    top: -2rem; /*half of the square*/
+}
+
+.service__icon .uil {
+    position: absolute;
+    top: 50%;
+    left: 13%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+}
+
+.service__info h3 {
+    margin-bottom: 1rem;
+}
 
 /* ===== FEATURED PROJECTS ===== */
 .projects {
@@ -374,7 +395,7 @@ header {
     font-style: italic;
 }
 
-/* ===== FEATURED PROJECTS ===== */
+/* ===== FOOTER ===== */
 footer {
     background: var(--color-bg1);
 }
@@ -382,11 +403,62 @@ footer {
 .footer_container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    padding-top: 3rem;
+}
+
+.footer__left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
 }
 
 .footer__right {
-    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     justify-content: flex-end;
+    gap: 0.2rem
+}  
+
+.newsletter {
+    background: var(--color-primary);
+    padding: .1rem .4rem .3rem .4rem;
+    border-radius: 0.5rem;
+}
+
+.newsletter input[type="text"] {
+    background: var(--color-light);
+    padding: 0.2rem;
+    border-radius: 0.3rem;
+}
+
+.newsletter input[type="submit"] {
+    padding: 0.2rem;
+    border-radius: 0.3rem;
+    background: var(--color-primary);
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--color-bg);
+}
+
+.newsletter input[type="submit"]:hover {
+    background: var(--color-light);
+}
+
+.footer__socials {
+    display: flex;
+    gap: .9rem;
+    font-size: 1.4rem;
+}
+
+.footer__socials a {
+    border: 1px solid transparent;
+    padding: 0.2rem 0.3rem;
+    transition: var(--transition);
+}
+
+.footer__socials a:hover {
+    border-color: var(--color-light);
 }
 
 .footer__copyright {
@@ -394,6 +466,214 @@ footer {
     margin-top: 4rem;
     padding: 1.2rem 0;
     border-top: 1px solid var(--color-bg2);
+}
+
+.footer__copyright small {
+    font-size: 0.6rem;
+}
+
+/* =========== MEDIA QUERIES =========== */
+@media screen and (max-width: 1140px){
+    .container {
+        width: var(--container-width-md);
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        width: auto;
+    }
+    
+    .btn-primary {
+        width: auto;
+    }
+
+    /* ====== NAVBAR ====== */
+    .nav__container {
+        width: var(--container-width-md);
+    }
+
+    nav button {
+        display: inline-block;
+        background: transparent;
+        font-size: 1.8rem;
+        color: var(--color-white);
+        cursor: pointer;
+    }
+
+    nav button#close-menu-btn {
+        display: none;
+    }
+
+    .nav__cto {
+        display: none;
+    }
+
+    .nav__links {
+        position: fixed;
+        top: 5.5rem;
+        right: 5%; /*because container with is 90%*/
+        display: none;
+        flex-direction: column;
+        width: 18rem;
+        gap: 0;
+        background-color: var(--color-primary);
+        border-radius: 1rem;
+        padding: 2rem;
+    }
+
+    .nav__links ul {
+        flex-direction: column;
+    }
+
+    .nav__links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav__links li a {
+        box-shadow: -4rem 6rem 10rem rgba(0, 0, 0, 0.6);
+        width: 100%;
+        height: 100%;
+    }
+
+    /* ====== HEADER ====== */
+    .header__container {
+        grid-template-columns: 50% 50%;
+        gap: 1rem;
+    }
+    
+    .header__left {
+        gap: 1rem;
+    }
+    
+    .header__cto {
+        gap: 1rem;  
+    }
+
+    .header__right__image {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    /* ====== SERVICES ====== */
+    .services__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* ====== FEATURED PROJECTS ====== */
+    .projects__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* ====== FAQs ====== */
+    .faqs__container {
+        grid-template-columns: 1fr;
+    }
+
+    .faq {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 660px){ 
+    .container {
+        width: var(--container-width-sm);
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    h4 {
+        font-size: 1.1rem;
+    }
+
+
+    /* ====== NAVBAR ====== */
+    .nav__links {
+        right: 3%; /*because container is now at 94%*/
+    }
+
+    header {
+        height: 90vh;
+    }
+
+    .header__container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        margin-top: 3rem;
+    }
+
+    .header__cto {
+        justify-content: center;
+    }
+
+    .header__right__image {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    /* ====== SERVICES ====== */
+    .services__container {
+        grid-template-columns: 1fr;
+    }
+
+    /* ====== FEATURED PROJECTS ====== */
+    .projects__container {
+        grid-template-columns: 1fr;
+    }
+
+    /* ====== FAQs ====== */
+    .faqs__container {
+        grid-template-columns: 1fr;
+    }
+
+    .faq {
+        width: 90%;
+    }
+
+    /* ====== FOOTER ====== */
+    .footer_container {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+    
+    .footer__left {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer__right {
+        align-items: center;
+        gap: 1.2rem
+    }  
 }
 
 
