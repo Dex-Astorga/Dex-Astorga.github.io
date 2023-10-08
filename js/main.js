@@ -10,13 +10,6 @@ const faqs = document.querySelectorAll('.faq');
 faqs.forEach(faq => {
     faq.addEventListener('click', () => {
         faq.classList.toggle('open');
-
-        const icon = faq.querySelector('.faq__icon i');
-        if(icon.className === 'uil uil-plus') {
-            icon.className = "";
-        } else {
-            icon.className = "uil uil-plus";
-        }
     })
 });
 
