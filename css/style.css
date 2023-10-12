@@ -296,6 +296,8 @@ header {
     background: var(--color-bg2);
     border-radius: 1rem;
     transition: var(--transition);
+    position: relative;
+    padding-bottom: 4rem;
 }
 
 .project:hover {
@@ -314,6 +316,11 @@ header {
     flex-direction: column;
     gap: 1rem;
     align-items: center;
+}
+
+.project__info a {
+    position: absolute;
+    bottom: 1.2rem;
 }
 
 /* ===== FAQs ===== */
